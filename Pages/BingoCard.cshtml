@@ -6,16 +6,30 @@
     var iterator = 0;
 }
 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".changeThis").click(function () {
+            $(this).toggleClass("highlighted");
+            return false;
+        });
+
+
+    });
+
+</script>
+
 <div class="container bg-danger p-4">
     <h2 class="display-4 text-center text-white">Lockdown Bingo</h2>
     <div class="container">
-        @for (var i = 0; i < 5; i++)
+        @for (var i = 0; i < 4; i++)
         {
             <div class="row">
 
-                @for (var j = 1; j < 6; j++)
+                @for (var j = 0; j < 5; j++)
                 {
-                    <div class="col p-3 border border-dark text-center bg-white" onclick="alert('@bingoNumbers.ElementAtOrDefault(iterator)')"><h3>@bingoNumbers.ElementAtOrDefault(iterator)</h3></div>
+                    <div class="colborder-dark text-center bg-white"><a href="#" class="p-2 p-sm-0 changeThis">@bingoNumbers.ElementAtOrDefault(iterator)</a></div>
                     iterator++;
                 }
             </div>

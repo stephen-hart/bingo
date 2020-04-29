@@ -1,11 +1,42 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+
+    var bingoNumbers = (List<int>)ViewData["BingoNumbers"];
+    var iterator = 0;
 }
 
-<div class="text-center">
-    @*<h1 class="display-4">Welcome</h1>
-    <h2 class="display-4">to Lockdown Bingo</h2>*@
-    
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".changeThis").click(function () {
+            $(this).toggleClass("highlighted");
+        });
+
+    });
+
+</script>
+
+<div class="container bg-danger p-4">
+    <h2 class="display-4 text-center text-white">Lockdown Bingo</h2>
+    <div class="container">
+        @for (var i = 0; i < 5; i++)
+        {
+        <div class="row">
+
+            @for (var j = 0; j < 4; j++)
+                {
+            <div style="border: solid 2px black" class="col p-2 p-sm-4 border-dark text-center bg-white changeThis"><h3>@bingoNumbers.ElementAtOrDefault(iterator)</h3></div>
+                    iterator++;
+                }
+        </div>
+        }
+
+
+    </div>
 </div>
+
+
+
+

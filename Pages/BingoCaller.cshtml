@@ -3,9 +3,20 @@
 @{
     ViewData["Title"] = "BingoCaller";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    var bingoNumbers = (List<string>)ViewData["BingoNumbers"];
+    var iterator = 0;
+
+    
 }
 
 <h1>BingoCaller</h1>
+<ul>
+@for(var i = 0; i < bingoNumbers.Count(); i++) {
+    <li class="numberAt-@i">@bingoNumbers.ElementAtOrDefault(iterator)</li>
+    iterator++;
+}
+</ul>
 
-<h2>@ViewData["RandomNumber"]</h2>
+
 
